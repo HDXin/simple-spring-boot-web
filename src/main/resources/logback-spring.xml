@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 文件输出格式 -->
+    <property name="PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{X-RID}] [X-IP-%X{X-REMOTE}] %-5level %logger{15} [%line] %msg%n"/>
+    <!-- test文件路径 -->-->
+    <property name="COLOR_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%yellow(%thread)] [%boldRed(%X{X-RID})] [X-IP-%X{X-REMOTE}] %highlight(%-5level) %cyan(%logger{15}) [%line] %msg%n"/>
+    <!-- test文件路径 -->
+    <property name="LOG_FILE_PATH" value="${LOG-FILE-PATH}"/>
+    <property name="LOG_MAX_HISTORY" value="${LOG-MAX-HISTORY}"/>
+
+    <!-- 开发环境 -->
+    <springProfile name="!prod">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${COLOR_PATTERN}</pattern>
+            </encoder>
+        </appender>
+
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${COLOR_PATTERN}</pattern>
+            </encoder>
+        </appender>
+
+        <logger name="com.kuaicto" level="debug"/>
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <!-- 测试环境 -->
+    <springProfile name="prod,dev,test">
+        <!-- 每天产生一个文件 -->
+        <appender name="LOG-FILE"
+                  class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!-- 文件路径 -->
+            <file>${LOG_FILE_PATH}/logs/info.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <!-- 文件名称 -->
+                <fileNamePattern>${LOG_FILE_PATH}/logs/info.%d{yyyy-MM-dd}.%i.log.gz
+                </fileNamePattern>
+                <!-- 文件最大保存历史数量 -->
+                <MaxHistory>${LOG_MAX_HISTORY}</MaxHistory>
+                <!--单个文件最大大小, 超过删除旧的-->
+                <maxFileSize>2GB</maxFileSize>
+                <!--总日志最大大小, 超过删除旧的-->
+                <!--<totalSizeCap>20GB</totalSizeCap>-->
+            </rollingPolicy>
+
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+        <logger name="com.kuaicto" level="debug"/>
+
+        <root level="INFO">
+            <appender-ref ref="LOG-FILE"/>
+        </root>
+    </springProfile>
+</configuration>
