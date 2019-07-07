@@ -1,4 +1,4 @@
-package top.atstudy.simple.api.account;
+package top.atstudy.example;
 
 public class AccountVo {
 

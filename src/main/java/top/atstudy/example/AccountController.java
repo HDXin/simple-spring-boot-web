@@ -1,4 +1,4 @@
-package top.atstudy.simple.api.account;
+package top.atstudy.example;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
