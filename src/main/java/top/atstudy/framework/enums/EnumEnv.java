@@ -1,6 +1,6 @@
 package top.atstudy.framework.enums;
 
-import top.atstudy.specification.enums.base.ICodeEnum;
+import top.atstudy.framework.spec.enums.base.ICodeEnum;
 
 public enum EnumEnv implements ICodeEnum<EnumEnv, String> {
     DEV("dev"),

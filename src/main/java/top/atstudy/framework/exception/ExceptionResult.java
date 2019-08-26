@@ -1,7 +1,6 @@
 package top.atstudy.framework.exception;
 
-import top.atstudy.specification.enums.base.IErrorEnum;
-
+import top.atstudy.framework.spec.enums.base.IErrorEnum;
 import java.util.ArrayList;
 import java.util.List;
 

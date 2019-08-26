@@ -1,6 +1,6 @@
 package top.atstudy.framework.enums;
 
-import top.atstudy.specification.enums.http.IError401Enum;
+import top.atstudy.framework.spec.enums.http.IError401Enum;
 
 public enum Enum401Error implements IError401Enum<Enum401Error> {
     SGW_SESSION_USER_NOT_FOUND(401001, "网关session用户未找到");

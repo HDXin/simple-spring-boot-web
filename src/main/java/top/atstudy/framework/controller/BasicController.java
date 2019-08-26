@@ -11,9 +11,9 @@ import top.atstudy.framework.enums.Enum401Error;
 import top.atstudy.framework.exception.APIException;
 import top.atstudy.framework.kit.HttpRenderKit;
 import top.atstudy.framework.kit.LoggerKit;
-import top.atstudy.specification.exception.SessionUserNotFoundException;
-import top.atstudy.specification.resolver.SessionUser;
-import top.atstudy.specification.resolver.SessionUserResolver;
+import top.atstudy.framework.spec.exception.SessionUserNotFoundException;
+import top.atstudy.framework.spec.resolver.SessionUser;
+import top.atstudy.framework.spec.resolver.SessionUserResolver;
 
 @Scope("prototype")
 public class BasicController {
