@@ -25,5 +25,6 @@ hs_err_pid*
 target/*
 .idea**
 simple-spring-boot-web.iml
+logs/*
 
 
