@@ -7,8 +7,8 @@ import top.atstudy.framework.core.Handler;
 import top.atstudy.framework.kit.CommonKit;
 import top.atstudy.framework.kit.HttpHeadKit;
 import top.atstudy.framework.kit.LoggerKit;
-import top.atstudy.specification.exception.RequestMediaNotFoundException;
-import top.atstudy.specification.resolver.RequestMediaResolver;
+import top.atstudy.framework.spec.exception.RequestMediaNotFoundException;
+import top.atstudy.framework.spec.resolver.RequestMediaResolver;
 
 import java.io.IOException;
 import java.util.Map;
